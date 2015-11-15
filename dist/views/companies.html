@@ -1,0 +1,115 @@
+<div class="loading" ng-show="status">
+    <md-progress-circular class="md-accent" md-mode="indeterminate"></md-progress-circular>
+</div>
+
+<div ng-hide="status">
+
+    <div flex class="scrolling">
+
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Task Creation">
+
+                <h4>Standard date-picker</h4>
+                <md-datepicker ng-model="myDate" md-placeholder="Enter date"></md-datepicker>
+
+            </md-tab>
+            <md-tab label="two">
+                <div class="taskslist">
+                    <md-whiteframe class="md-whiteframe-z3 task-progress" layout="row">
+                        <div class="task" flex>
+
+                            <div class="content" layout="column">
+                                <div class="name"><strong>Title           :</strong> Task Name</div>
+                                <div><strong>Assigned user        :</strong> Assigned user</div>
+                                <div><strong>Description        :</strong> Description</div>
+                            </div>
+                            <div class="container-perc">
+                                <pct-complete value="60"></pct-complete>
+                            </div>
+                            <div flex></div>
+                            <div flex>
+                                <md-button ng-click="showDialog($event, task)" class="md-icon-button md-primary" aria-label="Settings">
+                                    <md-tooltip>
+                                        Edit
+                                    </md-tooltip>
+                                    <img src="images/icons/tm-pencil.png">
+                                </md-button>
+                                <br>
+                                <md-button ng-click="showDialog($event, task)" class="md-icon-button md-primary" aria-label="Settings">
+                                    <md-tooltip>
+                                        Delete
+                                    </md-tooltip>
+                                    <img src="images/icons/tm-delete.png">
+                                </md-button>
+                            </div>
+                        </div>
+                    </md-whiteframe>
+                </div>
+            </md-tab>
+            <md-tab label="three">
+                <md-content class="md-padding">
+
+                    <form name="projectForm">
+                        <div layout="row">
+                            <div flex>
+                                <md-input-container>
+                                    <label>Description</label>
+                                    <input md-maxlength="30" required name="description" ng-model="project.description">
+                                    <div ng-messages="projectForm.description.$error">
+                                        <div ng-message="required">This is required.</div>
+                                        <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Client Name</label>
+                                    <input required name="clientName" ng-model="project.clientName">
+                                    <div ng-messages="projectForm.clientName.$error">
+                                        <div ng-message="required">This is required.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Hourly Rate (USD)</label>
+                                    <input required type="number" step="any" name="rate" ng-model="project.rate" min="800" max="4999">
+                                    <div ng-messages="projectForm.rate.$error">
+                                        <div ng-message="required">You've got to charge something! You can't just <b>give away</b> a Missile Defense System.</div>
+                                        <div ng-message="min">You should charge at least $800 an hour. This job is a big deal... if you mess up, everyone dies!</div>
+                                        <div ng-message="max">$5,000 an hour? That's a little ridiculous. I doubt event Bill Clinton could afford that.</div>
+                                    </div>
+                                </md-input-container>
+                            </div>
+                            <div flex>
+                                <md-input-container>
+                                    <label>Description</label>
+                                    <input md-maxlength="30" required name="description" ng-model="project.description">
+                                    <div ng-messages="projectForm.description.$error">
+                                        <div ng-message="required">This is required.</div>
+                                        <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Client Name</label>
+                                    <input required name="clientName" ng-model="project.clientName">
+                                    <div ng-messages="projectForm.clientName.$error">
+                                        <div ng-message="required">This is required.</div>
+                                    </div>
+                                </md-input-container>
+                                <md-input-container>
+                                    <label>Hourly Rate (USD)</label>
+                                    <input required type="number" step="any" name="rate" ng-model="project.rate" min="800" max="4999">
+                                    <div ng-messages="projectForm.rate.$error">
+                                        <div ng-message="required">You've got to charge something! You can't just <b>give away</b> a Missile Defense System.</div>
+                                        <div ng-message="min">You should charge at least $800 an hour. This job is a big deal... if you mess up, everyone dies!</div>
+                                        <div ng-message="max">$5,000 an hour? That's a little ridiculous. I doubt event Bill Clinton could afford that.</div>
+                                    </div>
+                                </md-input-container>
+                            </div>
+                        </div>
+                    </form>
+
+                </md-content>
+            </md-tab>
+        </md-tabs>
+
+    </div>
+
+</div>

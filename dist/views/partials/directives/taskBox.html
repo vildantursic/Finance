@@ -1,0 +1,31 @@
+<div>
+    <md-whiteframe class="md-whiteframe-z3 task-progress" layout="row">
+        <div class="task" flex>
+
+            <div class="content" layout="column">
+                <div class="name"><strong>Title           :</strong> {{ task.task_name | limitTo: 50 }}</div>
+                <div><strong>Assigned user        :</strong> {{ task.assigned_username }}</div>
+                <div><strong>Description        :</strong> {{ task.description | limitTo: 50 }}</div>
+            </div>
+            <div class="container-perc">
+                <pct-complete value=" task.percentage | limitTo: 3"></pct-complete>
+            </div>
+            <div flex></div>
+            <div flex>
+                <md-button ng-click="showEditTask($event, task)" class="md-icon-button md-primary" aria-label="Settings">
+                    <md-tooltip>
+                        Edit
+                    </md-tooltip>
+                    <img src="images/icons/tm-pencil.png">
+                </md-button>
+                <br>
+                <md-button ng-click="showDeleteTask($event, task)" class="md-icon-button md-primary" aria-label="Settings">
+                    <md-tooltip>
+                        Delete
+                    </md-tooltip>
+                    <img src="images/icons/tm-delete.png">
+                </md-button>
+            </div>
+        </div>
+    </md-whiteframe>
+</div>

@@ -1,0 +1,33 @@
+{
+  "name": "TaskManagement",
+  "version": "0.2.0",
+  "authors": [
+    "vildantursic <vildantursic@hotmail.com>"
+  ],
+  "description": "TM is application for managing tasks and getting useful reports for further improvement of business",
+  "keywords": [
+    "web app",
+    "task",
+    "management"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.5",
+    "angular-chart.js": "~0.8.4",
+    "angular-material": "~0.10.1",
+    "angular-messages": "~1.4.5",
+    "angular-nvd3": "~0.1.1",
+    "angular-ui-router": "~0.2.15",
+    "bootstrap": "~3.3.5",
+    "moment": "~2.10.6",
+    "angular-material-data-table": "~0.8.14",
+    "ng-file-upload": "~9.1.2"
+  }
+}

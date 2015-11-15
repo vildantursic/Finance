@@ -1,0 +1,124 @@
+<md-dialog class="dialog" aria-label="project" ng-controller="projectsCtrl">
+  <form>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>EDIT PROJECT #{{projectEdit.project_id}}</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="answer('close')">
+        <img src="images/icons/tm-close.png" aria-label="Close dialog">
+      </md-button>
+    </div>
+  </md-toolbar>
+    <md-dialog-content>
+      <div layout="row" layout-wrap layout-margin>
+        <div flex>
+          <md-input-container>
+            <label>Name</label>
+            <input ng-model="projectEdit.project_name">
+          </md-input-container>
+        </div>
+      </div>
+      <div layout="row" layout-wrap layout-margin>
+        <div flex>
+          <md-select name="parent-proj" placeholder="Parent project" ng-model="projectEdit.parentProj" style="min-width: 200px;">
+            <md-option ng-repeat="parentProj in parentProject" value="{{parentProj.id}}">{{parentProj.name}}</md-option>
+          </md-select>
+        </div>
+        <div flex>
+          <md-select name="customer" placeholder="Customer" ng-model="projectEdit.customer" style="min-width: 200px;">
+            <md-option ng-repeat="customer in customers" value="{{customer.id}}">{{customer.name}}</md-option>
+          </md-select>
+        </div>
+      </div>
+      <div layout="row" layout-wrap layout-margin>
+        <div flex>
+          <md-select name="manager" placeholder="Project manager" ng-model="projectEdit.manager" style="min-width: 200px;">
+            <md-option ng-repeat="manager in managers" value="{{manager.id}}">{{manager.name}}</md-option>
+          </md-select>
+        </div>
+        <div flex>
+          <md-select name="type" placeholder="Project type" ng-model="projectEdit.type" style="min-width: 200px;">
+            <md-option ng-repeat="type in projectType" value="{{type.id}}">{{type.name}}</md-option>
+          </md-select>
+        </div>
+      </div>
+      <div layout="row" layout-wrap layout-margin>
+        <div flex>
+          <md-select name="status" placeholder="Project status" ng-model="projectEdit.status" style="min-width: 200px;">
+            <md-option ng-repeat="status in states" value="{{status.id}}">{{status.name}}</md-option>
+          </md-select>
+        </div>
+        <div flex>
+          <md-select name="on-track-status" placeholder="On track status" ng-model="projectEdit.onTrackStatus" style="min-width: 200px;">
+            <md-option ng-repeat="onTrackStatus in onTrackStates" value="{{onTrackStatus.id}}">{{onTrackStatus.name}}</md-option>
+          </md-select>
+        </div>
+      </div>
+      <div layout="row" layout-wrap layout-margin>
+        <div flex>
+          <md-input-container>
+            <label>Start date</label>
+            <input type="text" ng-model="projectEdit.start_date">
+          </md-input-container>
+        </div>
+        <div flex>
+          <md-input-container>
+            <label>End date</label>
+            <input type="text" ng-model="projectEdit.end_date">
+          </md-input-container>
+        </div>
+      </div>
+      <div layout="row" layout-wrap layout-margin>
+        <div flex="50">
+          <md-input-container>
+            <label>Project buget</label>
+            <input ng-model="projectEdit.p_buget">
+          </md-input-container>
+        </div>
+        <div flex="20">
+          <md-input-container>
+            <label>Project buget hours</label>
+            <input ng-model="projectEdit.p_buget_hours">
+          </md-input-container>
+        </div>
+        <div flex="20">
+          <md-select name="currency" placeholder="Currency" ng-model="projectEdit.currency" style="min-width: 200px;">
+            <md-option ng-repeat="currency in currencies" value="{{currency.id}}">{{currency.name}}</md-option>
+          </md-select>
+        </div>
+      </div>
+      <div layout="row" layout-wrap layout-margin>
+        <md-input-container>
+          <label>Description</label>
+          <input type="text" class="note" ng-model="projectEdit.note">
+        </md-input-container>
+      </div>
+      <div layout="row" layout-wrap layout-margin>
+        <div flex="20">
+          <md-checkbox ng-model="projectEdit.milestone" aria-label="milestone">
+            Milestone
+          </md-checkbox>
+        </div>
+        <div flex="33">
+          <md-input-container>
+            <label>Presales value</label>
+            <input ng-model="projectEdit.presales_val">
+          </md-input-container>
+        </div>
+        <div flex="33">
+          <md-select name="priority" placeholder="Project priority" ng-model="projectEdit.priority" style="min-width: 200px;">
+            <md-option ng-repeat="priority in priorities" value="{{priority.id}}">{{priority.name}}</md-option>
+          </md-select>
+        </div>
+      </div>
+    </md-dialog-content>
+  <div class="md-actions" layout="row">
+    <md-button ng-click="answer('cancel')" class="md-warn">
+     cancel
+    </md-button>
+    <md-button ng-click="answer('save')" class="md-raised md-primary">
+      save
+    </md-button>
+  </div>
+  </form>
+</md-dialog>

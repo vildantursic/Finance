@@ -1,0 +1,11 @@
+<div class="pagination" layout="row">
+    <p>Showing {{currentPage+1}} of {{numberOfPages()}} entries</p>
+    <span flex></span>
+    <md-button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1" class="md-icon-button">
+        <img src="images/icons/tm-arrow-left.png">
+    </md-button>
+    <p>{{currentPage+1}}</p>
+    <md-button ng-disabled="currentPage >= projects.length/pageSize - 1" ng-click="currentPage=currentPage+1" class="md-icon-button">
+        <img src="images/icons/tm-arrow-right.png">
+    </md-button>
+</div>

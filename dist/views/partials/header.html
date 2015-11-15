@@ -1,0 +1,47 @@
+<md-content ng-controller="headerCtrl">
+  <md-toolbar class="md-tall">
+    <div class="md-toolbar-tools">
+
+        <div class="logo" layout-align="start start" hide-sm hide-md>
+            <img src="/images/icons/tm-logo.png" alt="" />
+            <h2>FINANCE<br/>MANAGER</h2>
+        </div>
+
+        <md-button ng-click="toggleLeft()" class="md-icon-button menu-button" aria-label="Menu">
+            <md-tooltip>
+                Menu
+            </md-tooltip>
+            <img src="images/icons/tm-menu.png">
+        </md-button>
+
+        <span flex></span>
+        <md-button href="http://tiimiss.globalgps.ba" class="md-icon-button" aria-label="Logout" hide-sm>
+            <md-tooltip>
+                Logout
+            </md-tooltip>
+            <img src="images/icons/tm-logout.png">
+        </md-button>
+        <md-button class="md-icon-button" aria-label="Users" hide-sm>
+            <md-tooltip>
+              Users
+            </md-tooltip>
+            <img src="images/icons/tm-user.png">
+        </md-button>
+        <!--<md-button class="md-icon-button" aria-label="Projects" hide-sm>-->
+            <!--<md-tooltip>-->
+                <!--Help-->
+            <!--</md-tooltip>-->
+            <!--<img  src="images/icons/tm-question.png">-->
+        <!--</md-button>-->
+
+        <div class="main-logo" layout-align="end start" hide-sm hide-md>
+          <img src="/images/icons/tiimiss.png" alt="" />
+          <p>LAW ENFORCEMENT</p>
+        </div>
+    </div>
+
+    <h2 class="md-toolbar-tools md-toolbar-tools-bottom" style="padding-left: 15px;" hide-sm hide-md>
+      <span class="md-flex" style="padding-left: 230px">Location: {{$state.current.name}}</span>
+    </h2>
+  </md-toolbar>
+</md-content>

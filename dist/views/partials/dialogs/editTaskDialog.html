@@ -1,0 +1,74 @@
+<md-dialog class="dialog" aria-label="task" ng-controller="taskEditCtrl">
+  <form>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h2>EDIT TASK #{{taskEdit.id}}</h2>
+      <span flex></span>
+      <md-button class="md-icon-button" ng-click="answer('close')">
+        <img src="images/icons/tm-close.png" aria-label="Close dialog">
+      </md-button>
+    </div>
+  </md-toolbar>
+    <md-dialog-content>
+      <div layout="row" layout-wrap layout-margin>
+        <div flex>
+          <md-input-container>
+            <label>Task name</label>
+            <input type="text" ng-model="editTask.task_name">
+          </md-input-container>
+        </div>
+        <div flex>
+          <md-input-container>
+            <label>Assigned user</label>
+            <input type="text" ng-model="editTask.assigned_username">
+          </md-input-container>
+        </div>
+      </div>
+      <div layout="row" layout-wrap layout-margin>
+        <div flex class="fix-2">
+          <md-datepicker md-placeholder="Enter date" ng-model="editTask.end_time"></md-datepicker>
+        </div>
+        <div flex>
+          <md-select name="parent_task" placeholder="Parent task" ng-model="editTask.parent_task" style="min-width: 200px;">
+            <md-option ng-repeat="parent_task in object" value="{{parent_task.id}}">{{parent_task.task_name}}</md-option>
+          </md-select>
+        </div>
+      </div>
+      <div layout="row" layout-wrap layout-margin>
+        <div flex>
+          <md-input-container>
+            <label>Description</label>
+            <input type="text" class="note" ng-model="editTask.description">
+          </md-input-container>
+        </div>
+      </div>
+      <div layout="row" layout-wrap layout-margin>
+        <div flex>
+          <md-input-container>
+            <label>Task specifics</label>
+            <input type="text" class="note" ng-model="editTask.task_specifics">
+          </md-input-container>
+        </div>
+      </div>
+      <!-- /////////////////////////////////// -->
+
+      <!-- Nature of problem-->
+
+
+
+      <!-- //////////////////////////////////-->
+
+      <pre>
+        {{ editTask | json }}
+      </pre>
+    </md-dialog-content>
+  <div class="md-actions" layout="row">
+    <md-button ng-click="answer('cancel')" class="md-warn">
+     cancel
+    </md-button>
+    <md-button ng-click="answer('save')" class="md-raised md-primary">
+      save
+    </md-button>
+  </div>
+  </form>
+</md-dialog>

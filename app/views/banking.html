@@ -1,0 +1,81 @@
+<div class="loading" ng-show="status">
+    <md-progress-circular class="md-accent" md-mode="indeterminate"></md-progress-circular>
+</div>
+
+<div ng-hide="status">
+    <div flex class="scrolling">
+
+        <upload-box file="file"></upload-box>
+
+        <div layout="row">
+          <div flex>
+            <!-- <search-box></search-box> -->
+          </div>
+          <div flex>
+            <md-input-container>
+              <label>Nalogoprimac</label>
+              <md-select ng-model="search.nalogoprimac_2">
+                <md-option ng-repeat="obj in object | unique:'nalogoprimac_2'" value="{{obj.nalogoprimac_2}}">
+                  {{obj.nalogoprimac_2}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+          <div flex>
+            <md-input-container>
+              <label>Svrha</label>
+              <md-select ng-model="search.svrha">
+                <md-option ng-repeat="obj in object | unique:'svrha'" value="{{obj.svrha}}">
+                  {{obj.svrha}}
+                </md-option>
+              </md-select>
+            </md-input-container>
+          </div>
+          <div flex>
+            <md-button class="md-raised md-primary" ng-click="clear()">Clear</md-button>
+          </div>
+        </div>
+
+        <div layout="column">
+          <div flex>
+
+              <md-data-table-toolbar ng-show="!selected.length">
+                <h2 class="md-title">Reports</h2>
+              </md-data-table-toolbar>
+
+              <md-data-table-toolbar class="alternate" ng-show="selected.length">
+                <div>{{selected.length}} {{selected.length > 1 ? 'items' : 'item'}} selected</div>
+              </md-data-table-toolbar>
+
+              <md-data-table-container>
+                <table md-data-table class="md-primary" md-row-select="selected" md-progress="deferred">
+                  <thead md-order="query.order" md-trigger="onorderchange">
+                    <tr>
+                      <th order-by="id" name="Broj Izvoda"></th>
+                      <th date order-by="datum_naloga" name="Datum naloga"></th>
+                      <th name="Svrha"></th>
+                      <th name="Nalogoprimac"></th>
+                      <th name="Valuta"></th>
+                      <th numeric order-by="iznos" name="Iznos"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr md-auto-select ng-repeat="obj in object | filter: search | orderBy: query.order | limitTo: query.limit: (query.page - 1) * query.limit">
+                      <td>{{obj.broj_izvoda}}</td>
+                      <td>{{obj.datum_naloga | date:'dd-MM-yyyy'}}</td>
+                      <td>{{obj.svrha}}</td>
+                      <td>{{obj.nalogoprimac_2}}</td>
+                      <td>{{obj.valuta}}</td>
+                      <td>{{obj.iznos}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </md-data-table-container>
+
+              <md-data-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{object.length}}" md-trigger="onpagechange"></md-data-table-pagination>
+
+          </div>
+        </div>
+
+    </div>
+</div>

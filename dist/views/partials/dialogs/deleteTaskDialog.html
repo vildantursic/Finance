@@ -1,0 +1,27 @@
+<md-dialog aria-label="Delete task" ng-controller="taskEditCtrl">
+  <form>
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>DELETE TASK</h2>
+        <span flex></span>
+        <md-button class="md-icon-button" ng-click="answer('close')">
+          <img src="images/icons/tm-close.png" aria-label="Close dialog">
+        </md-button>
+      </div>
+    </md-toolbar>
+    <md-dialog-content>
+      <div>
+        <h3>DO YOU WANT TO DELETE TASK?</h3><br/>
+        #{{deleteTask.task_name}}
+      </div>
+    </md-dialog-content>
+    <div class="md-actions" layout="row">
+      <md-button ng-click="answer('no')" class="md-raised md-warn">
+       no
+      </md-button>
+      <md-button ng-click="answer('yes')" class="md-raised md-primary">
+        yes
+      </md-button>
+    </div>
+  </form>
+</md-dialog>

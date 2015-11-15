@@ -1,0 +1,31 @@
+<md-dialog class="dialog" aria-label="project" ng-controller="projectsCtrl">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>ADD NEW PROJECT</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="answer('close')">
+                    <img src="images/icons/tm-close.png" aria-label="Close dialog">
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <div layout="row" layout-wrap layout-margin>
+                <div flex>
+                    <md-input-container>
+                        <label>Title</label>
+                        <input ng-model="addProject.title">
+                    </md-input-container>
+                </div>
+            </div>
+        </md-dialog-content>
+        <div class="md-actions" layout="row">
+            <md-button ng-click="answer('cancel')" class="md-warn">
+                cancel
+            </md-button>
+            <md-button ng-click="answer('save')" class="md-raised md-primary">
+                save
+            </md-button>
+        </div>
+    </form>
+</md-dialog>

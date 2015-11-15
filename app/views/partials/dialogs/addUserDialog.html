@@ -1,0 +1,89 @@
+<md-dialog class="dialog" aria-label="user" ng-controller="usersCtrl">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>EDIT</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="answer('close')">
+                    <img src="images/icons/tm-close.png" aria-label="Close dialog">
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+            <form action="userForm">
+            <div layout="row" layout-wrap layout-margin>
+                <div flex>
+                    <md-input-container>
+                        <label>Email</label>
+                        <input type="email" name="email" required ng-model="addUser.email"/>
+                        <div ng-messages="userForm.email.$error" role="alert">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div flex>
+                    <md-input-container>
+                        <label>Username</label>
+                        <input type="text" name="username" required md-maxlength="30" ng-model="addUser.username"/>
+                        <div ng-messages="userForm.username.$error" role="alert">
+                            <div ng-message="required">This is required.</div>
+                            <div ng-message="md-maxlength">The username has to be less than 30 characters long.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+            </div>
+            <div layout="row" layout-wrap layout-margin>
+                <div flex>
+                    <md-input-container>
+                        <label>First name</label>
+                        <input type="text" ng-model="addUser.firstname"/>
+                    </md-input-container>
+                </div>
+                <div flex>
+                    <md-input-container>
+                        <label>Last name</label>
+                        <input type="text" ng-model="addUser.lastname"/>
+                    </md-input-container>
+                </div>
+            </div>
+            <div layout="row" layout-wrap layout-margin>
+                <div flex>
+                    <md-input-container>
+                        <label>Password</label>
+                        <input type="password" name="password" required ng-model="addUser.password"/>
+                        <div ng-messages="userForm.password.$error" role="alert">
+                            <div ng-message="required">This is required.</div>
+                        </div>
+                    </md-input-container>
+                </div>
+                <div flex>
+                    <md-input-container>
+                        <label>Password confirmation</label>
+                        <input type="password" ng-model="addUser.passconfirm"/>
+                    </md-input-container>
+                </div>
+            </div>
+            <div layout="row" layout-wrap layout-margin>
+                <div flex>
+                    <md-select name="auth" placeholder="Authority" ng-model="auth" style="min-width: 200px;">
+                        <md-option ng-repeat="auth in auhorities" value="{{auth.id}}">{{auth.name}}</md-option>
+                    </md-select>
+                </div>
+                <div flex>
+                    <md-select name="membership" placeholder="Group membership" ng-model="membership" style="min-width: 200px;">
+                        <md-option ng-repeat="membership in memberships" value="{{membership.id}}">{{membership.name}}</md-option>
+                    </md-select>
+                </div>
+            </div>
+            </form>
+        </md-dialog-content>
+        <div class="md-actions" layout="row">
+            <md-button ng-click="answer('cancel')" class="md-warn">
+                cancel
+            </md-button>
+            <md-button ng-click="answer('save')" class="md-raised md-primary">
+                save
+            </md-button>
+        </div>
+    </form>
+</md-dialog>

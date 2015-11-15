@@ -1,0 +1,59 @@
+nav {
+	margin: 0;
+}
+nav .menu-button {
+	padding-left: 230px;
+}
+
+.logo {
+	padding-top: 90px;
+	background: #00796B;
+	width: 230px;
+	height: 300%;
+	margin-left: -16px;
+	text-align: left;
+	padding-left: 30px;
+}
+
+.logo img{
+	float: left;
+	width: 60px;
+	height: 60px;
+	margin-right: 30px;
+}
+
+.logo h2 {
+	float: left;
+	padding-top: 5px;
+}
+
+.main-logo {
+	text-align: center;
+	width: 137px;
+	margin-right: -16px;
+	background-color: #B6B6B6;
+	padding-top: 75px;
+	height: 300%;
+}
+
+.main-logo p {
+	font-size: 17px;
+	margin-top: 0px;
+}
+
+.main-logo img{
+
+}
+
+md-toolbar.md-tall {
+	height: 128px;
+	min-height: 128px;
+	max-height: 128px;
+	color: white;
+}
+
+md-sidenav.md-locked-open {
+	width: 230px;
+	min-width: 207px;
+	max-width: 304px;
+}

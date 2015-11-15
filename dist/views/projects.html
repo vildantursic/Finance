@@ -1,0 +1,34 @@
+<div class="loading" ng-show="status">
+  <md-progress-circular class="md-accent" md-mode="indeterminate"></md-progress-circular>
+</div>
+
+<div class="projectlist" ng-hide="status">
+
+  <md-button class="md-fab add-btn" ng-click="showAddProject($event)" aria-label="Add">
+    <img src="images/icons/tm-add.png" alt=""/>
+  </md-button>
+
+  <div flex class="scrolling">
+
+    <div>
+      <search-box></search-box>
+    </div>
+
+    <div class="projects" ng-repeat="project in object | filter:search | startFrom:currentPage*pageSize | limitTo:pageSize">
+      <project-box project="project"></project-box>
+    </div>
+
+    <div class="pagination" layout="row">
+      <p>Showing {{currentPage+1}} of {{numberOfPages()}} pages</p>
+      <span flex></span>
+      <md-button ng-disabled="currentPage == 0" ng-click="currentPage=currentPage - 1" class="md-icon-button" aria-label="Prev">
+        <img src="images/icons/tm-arrow-left.png">
+      </md-button>
+      <p>{{currentPage+1}}</p>
+      <md-button ng-disabled="currentPage == numberOfPages() - 1" ng-click="currentPage=currentPage + 1" class="md-icon-button" aria-label="Next">
+        <img src="images/icons/tm-arrow-right.png">
+      </md-button>
+    </div>
+
+  </div>
+</div>

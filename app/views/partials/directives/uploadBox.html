@@ -1,0 +1,50 @@
+<div>
+
+  <form name="uploadForm">
+    <md-content md-theme="docs-dark">
+      <div layout-padding layout="row" layout-md="column" layout-md="column">
+        <!-- <div flex>
+          <md-input-container>
+            <label>User name</label>
+            <input type="text" name="userName" ng-model="username" size="31" required>
+            <div ng-messages="uploadForm.userName.$error">
+                <div ng-message="required">This is required.</div>
+            </div>
+          </md-input-container>
+        </div> -->
+        <div flex>
+            <md-input-container>
+              File:
+              <input aria-label="file" type="file" ngf-multiple="true" ngf-select ng-model="picFile" name="file" accept="image/*,text/*,.dat" ngf-max-size="2MB" required>
+              <div ng-messages="uploadForm.picFile.$error">
+                  <div ng-message="required">This is required.</div>
+                  <div ng-message="maxSize">File too larg {{picFile.size / 1000000|number:1}}MB: max 2M</div>
+              </div>
+            </md-input-container>
+        </div>
+        <div flex>
+          <md-button class="md-raised md-warn" ng-click="picFile = null" ng-show="picFile">Remove</md-button>
+          <md-button class="md-raised md-primary" ng-disabled="!uploadForm.$valid" ng-click="uploadPic(picFile)">Submit</md-button>
+        </div>
+      </div>
+      <div layout-padding layout="column">
+        <!-- <div flex>
+            <img ng-show="uploadForm.file.$valid" ngf-thumbnail="picFile" class="thumb">
+        </div> -->
+        <!-- <div flex>
+          <md-button class="md-raised md-warn" ng-click="picFile = null" ng-show="picFile">Remove</md-button>
+          <md-button class="md-raised md-primary" ng-disabled="!uploadForm.$valid" ng-click="uploadPic(picFile)">Submit</md-button>
+        </div> -->
+        <div flex>
+          <md-progress-linear md-mode="determinate" value="{{picFile.progress}}"></md-progress-linear>
+        </div>
+        <div flex>
+          <span class="success" ng-show="picFile.result">Upload Successful</span>
+          <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
+        </div>
+      </div>
+
+    </md-content>
+  </form>
+
+</div>

@@ -1,0 +1,12 @@
+.err {
+  color: red;
+}
+
+.success {
+  color: green;
+}
+
+.thumb {
+  width: 400px;
+  height: 400px;
+}
